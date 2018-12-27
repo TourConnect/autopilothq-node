@@ -13,7 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, 'lib'),
         filename: 'index.js',
         library: 'autopilot-node',
-        libraryExport: 'default'
+        libraryExport: 'default',
         libraryTarget: 'umd',
     },
     module: {
