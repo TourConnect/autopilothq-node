@@ -18,7 +18,7 @@ describe('contacts', () => {
   })
   it('should bulk add a contact', () => {
     expect.assertions(1);
-    autopilotApi.post('/contact').reply(200, {
+    autopilotApi.post('/contacts').reply(200, {
       "contact_ids": [
         "person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7",
         "person_9EAF39E4-9AEC-4134-964A-D9D8D5416AAA"
