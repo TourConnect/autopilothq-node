@@ -1,8 +1,6 @@
 import nock from 'nock';
 
-// const Autopilot = require('../src');
-const Autopilot = require('../lib/index');
-// import Autopilot from '../lib';
+import Autopilot from '../src';
 
 const autopilotApi = nock('https://api2.autopilothq.com/v1/');
 const autopilot = new Autopilot('key');
