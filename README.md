@@ -1,6 +1,8 @@
 # autopilothq-node
 A node client for the AutopilotHQ API
 
+[![Build Status](https://travis-ci.org/TourConnect/autopilothq-node.svg?branch=master)](https://travis-ci.org/TourConnect/autopilothq-node)
+
 For detailed API information reference [AutopilotHQ API Documentation](https://autopilot.docs.apiary.io/)
 
 ## Usage
