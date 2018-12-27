@@ -11,7 +11,10 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'lib'),
-        filename: 'index.js'
+        filename: 'index.js',
+        library: 'autopilot-node',
+        libraryExport: 'default'
+        libraryTarget: 'umd',
     },
     module: {
         rules: [

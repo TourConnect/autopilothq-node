@@ -1,5 +1,5 @@
-const merge = require('lodash.merge');
-const request = require('request-promise-native');
+import merge from 'lodash.merge';
+import request from 'request-promise-native';
 
 class Client {
   constructor(requestOpts) {
@@ -22,4 +22,5 @@ class Client {
 
   delete = (endpoint, data) => this.request({ method: 'DELETE', url: endpoint, qs: data });
 }
-module.exports = Client;
+
+export default Client;

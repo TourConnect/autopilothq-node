@@ -9,4 +9,4 @@ class Contact {
  unsubscribe = (contactIdOrEmail) => this.client.post(`/contact/${contactIdOrEmail}/unsubscribe`, obj);
 }
 
-module.exports = Contact;
+export default Contact;

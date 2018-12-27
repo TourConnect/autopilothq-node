@@ -1,7 +1,8 @@
-import '@babel/polyfill'
 import nock from 'nock';
 
-const Autopilot = require('../src/index');
+// const Autopilot = require('../src');
+const Autopilot = require('../lib/index');
+// import Autopilot from '../lib';
 
 const autopilotApi = nock('https://api2.autopilothq.com/v1/');
 const autopilot = new Autopilot('key');

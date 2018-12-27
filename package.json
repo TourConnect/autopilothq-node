@@ -2,17 +2,15 @@
   "name": "autopilothq-node",
   "version": "0.0.1",
   "description": "A NodeJS API client for AutopilotHQ",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "repository": "https://github.com/TourConnect/autopilothq-node",
+  "author": "",
+  "license": "MIT",
+  "main": "lib/index.js",
   "scripts": {
     "build": "webpack",
-    "test": "jest --watchAll --runInBand",
-    "test:watch": "npm run test -- --watch"
+    "prepublish": "npm run build",
+    "test": "jest --watchAll --runInBand --coverage"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "lodash.merge": "^4.6.1",
     "mocha": "^5.2.0",

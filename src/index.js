@@ -1,5 +1,5 @@
-const Client = require('./client');
-const Contact = require('./contact');
+import Client from './client';
+import Contact from './contact';
 
 class Autopilot {
   constructor(apiKey, options) {
@@ -14,4 +14,4 @@ class Autopilot {
   }
 }
 
-module.exports = Autopilot;
+export default Autopilot;
