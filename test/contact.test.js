@@ -16,6 +16,31 @@ describe('contacts', () => {
     const request = autopilot.contact.add({ email: 'test@example.com'})
     return expect(request).resolves.toEqual({ contact_id: 'person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7' })
   })
+  it('should bulk add a contact', () => {
+    expect.assertions(1);
+    autopilotApi.post('/contact').reply(200, {
+      "contact_ids": [
+        "person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7",
+        "person_9EAF39E4-9AEC-4134-964A-D9D8D5416AAA"
+      ],
+      "email_contact_map": {
+        "chris@autopilothq.com": "person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7",
+        "peter@autopilothq.com": "person_9EAF39E4-9AEC-4134-964A-D9D8D5416AAA"
+      }
+});
+
+    const request = autopilot.contact.bulkAdd([{ Email: 'chris@autopilothq.com' }, { Email: 'peter@autopilothq.com' }])
+    return expect(request).resolves.toEqual({
+      "contact_ids": [
+        "person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7",
+        "person_9EAF39E4-9AEC-4134-964A-D9D8D5416AAA"
+      ],
+      "email_contact_map": {
+        "chris@autopilothq.com": "person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7",
+        "peter@autopilothq.com": "person_9EAF39E4-9AEC-4134-964A-D9D8D5416AAA"
+      }
+    })
+  })
   it('should update a contact', () => {
     expect.assertions(1);
     autopilotApi.post('/contact').reply(200, { contact_id: "person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7" });
