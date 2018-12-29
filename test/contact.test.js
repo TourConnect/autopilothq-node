@@ -50,7 +50,7 @@ describe('contacts', () => {
     expect.assertions(1);
     autopilotApi.get(/\/contact\/\S*$/).reply(200, { contact_id: 'person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7' });
 
-    const request = autopilot.contact().get('test@example.com');
+    const request = autopilot.contact('test@example.com').get();
 
     return expect(request).resolves.toEqual({ contact_id: 'person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7' });
   });

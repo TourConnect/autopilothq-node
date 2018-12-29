@@ -50,7 +50,7 @@ class Contact {
 
   delete = contactIdOrEmail => this.client.delete(`/contact/${contactIdOrEmail}`);
 
-  get = contactIdOrEmail => this.client.get(`/contact/${contactIdOrEmail}`);
+  get = contactIdOrEmail => this.client.get(`/contact/${this.contactIdOrEmail}`);
 
   isOnList = listId => this.client.get(`/list/${listId}/contact/${this.contactIdOrEmail}`);
 
