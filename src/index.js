@@ -12,8 +12,10 @@ class Autopilot {
       ...options,
     });
 
-    this.contact = new Contact(client);
-    this.list = new List(client);
+    this.contact = param => new Contact(client, param);
+    this.contacts = (bookmark = null) => this.contact().all(bookmark);
+    this.list = param => new List(client, param);
+    this.lists = () => this.list().all();
   }
 }
 

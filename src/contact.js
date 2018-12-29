@@ -1,8 +1,9 @@
 import parse from './utils/parse';
 
 class Contact {
-  constructor(client) {
+  constructor(client, contactIdOrEmail) {
     this.client = client;
+    this.contactIdOrEmail = contactIdOrEmail;
 
     this.standardFields = [
       'contact_id',
@@ -36,22 +37,28 @@ class Contact {
     ];
   }
 
-  add = obj => this.client.post('/contact', { contact: parse(this.standardFields, obj) });
+  add = (data) => {
+    if (Array.isArray(data)) {
+      return this.client.post('/contacts', { contacts: data.map(obj => parse(this.standardFields, obj)) });
+    }
+    return this.client.post('/contact', { contact: parse(this.standardFields, data) });
+  }
+
+  addToList = listId => this.client.post(`/list/${listId}/contact/${this.contactIdOrEmail}`);
 
   all = (bookmark = null) => this.client.get(`/contacts${bookmark ? `/${bookmark}` : ''}`);
 
-  bulkAdd = array => this.client.post('/contacts', { contacts: array.map(obj => parse(this.standardFields, obj)) });
-
-  update = obj => this.client.post('/contact', { contact: parse(this.standardFields, obj) });
+  delete = contactIdOrEmail => this.client.delete(`/contact/${contactIdOrEmail}`);
 
   get = contactIdOrEmail => this.client.get(`/contact/${contactIdOrEmail}`);
 
-  delete = contactIdOrEmail => this.client.delete(`/contact/${contactIdOrEmail}`);
+  isOnList = listId => this.client.get(`/list/${listId}/contact/${this.contactIdOrEmail}`);
+
+  removeFromList = listId => this.client.delete(`/list/${listId}/contact/${this.contactIdOrEmail}`);
 
   unsubscribe = contactIdOrEmail => this.client.post(`/contact/${contactIdOrEmail}/unsubscribe`);
 
-  // addToList = (contactIdOrEmail, listId) => this.client.post(`/list/${listId}/contact/${contactIdOrEmail}`)
-  // isOnList = (contactIdOrEmail, )
+  update = obj => this.client.post('/contact', { contact: parse(this.standardFields, obj) });
 }
 
 export default Contact;
