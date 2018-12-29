@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "description": "A NodeJS API client for AutopilotHQ",
   "repository": "https://github.com/TourConnect/autopilothq-node",
-  "author": "",
+  "author": "Seth McGuinness <seth@tourconnect.com>",
   "license": "MIT",
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "webpack",
-    "prepublish": "npm run build",
+    "prepublish": "npm run test && npm run build",
     "test:dev": "jest --watchAll --runInBand --coverage",
     "test": "jest  --coverage"
   },
