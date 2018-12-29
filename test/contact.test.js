@@ -58,7 +58,7 @@ describe('contacts', () => {
     expect.assertions(1);
     autopilotApi.post(/\/contact\/\S*\/unsubscribe$/).reply(200, {});
 
-    const request = autopilot.contact().unsubscribe('test@example.com');
+    const request = autopilot.contact('test@example.com').unsubscribe();
 
     return expect(request).resolves.toEqual({});
   });
@@ -66,7 +66,7 @@ describe('contacts', () => {
     expect.assertions(1);
     autopilotApi.delete(/\/contact\/\S*$/).reply(200, {});
 
-    const request = autopilot.contact().delete('test@example.com');
+    const request = autopilot.contact('test@example.com').delete();
 
     return expect(request).resolves.toEqual({});
   });

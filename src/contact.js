@@ -48,15 +48,15 @@ class Contact {
 
   all = (bookmark = null) => this.client.get(`/contacts${bookmark ? `/${bookmark}` : ''}`);
 
-  delete = contactIdOrEmail => this.client.delete(`/contact/${contactIdOrEmail}`);
+  delete = () => this.client.delete(`/contact/${this.contactIdOrEmail}`);
 
-  get = contactIdOrEmail => this.client.get(`/contact/${this.contactIdOrEmail}`);
+  get = () => this.client.get(`/contact/${this.contactIdOrEmail}`);
 
   isOnList = listId => this.client.get(`/list/${listId}/contact/${this.contactIdOrEmail}`);
 
   removeFromList = listId => this.client.delete(`/list/${listId}/contact/${this.contactIdOrEmail}`);
 
-  unsubscribe = contactIdOrEmail => this.client.post(`/contact/${contactIdOrEmail}/unsubscribe`);
+  unsubscribe = () => this.client.post(`/contact/${this.contactIdOrEmail}/unsubscribe`);
 
   update = obj => this.client.post('/contact', { contact: parse(this.standardFields, obj) });
 }
