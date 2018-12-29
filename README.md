@@ -23,20 +23,20 @@ var autopilot = new Autopilot('apikey', [reqOpts]);
 ### Add/Update Contact
 
 ```node
-autopilot.contact.add({ email: 'test@example.com'});
+autopilot.contact().add({ email: 'test@example.com'});
 ```
 ```node
-autopilot.contact.update({ email: 'test@example.com'});
+autopilot.contact().update({ email: 'test@example.com'});
 ```
 
 ### Get Contact
 
 ```node
-autopilot.contact.get('test@example.com'); // also takes autopilot contact id
+autopilot.contact('test@example.com').get(); // also takes autopilot contact id
 ```
 
 ### Delete Contact
 
 ```node
-autopilot.contact.delete('test@example.com'); // also takes autopilot contact id
+autopilot.contact('test@example.com').delete(); // also takes autopilot contact id
 ```
