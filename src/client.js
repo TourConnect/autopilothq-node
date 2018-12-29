@@ -10,7 +10,7 @@ class Client {
     const defaultArgs = {
       headers: { 'Content-Type': 'application/json' },
       json: true,
-    }
+    };
     return request(merge({}, this.requestOpts, defaultArgs, args));
   }
 
