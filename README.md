@@ -1,8 +1,9 @@
 # autopilothq-node
 A node client for the AutopilotHQ API
 
-[![](https://img.shields.io/npm/v/autopilothq-node.svg?style=popout)](https://npmjs.com/package/autopilothq-node)
 [![Build Status](https://travis-ci.org/TourConnect/autopilothq-node.svg?branch=master)](https://travis-ci.org/TourConnect/autopilothq-node)
+[![](https://img.shields.io/npm/dt/autopilothq-node.svg?style=popout)](https://www.npmjs.com/package/autopilothq-node)
+[![](https://img.shields.io/npm/v/autopilothq-node.svg?style=popout)](https://npmjs.com/package/autopilothq-node)
 
 For detailed API information reference [AutopilotHQ API Documentation](https://autopilot.docs.apiary.io/)
 
